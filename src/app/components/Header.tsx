@@ -54,7 +54,7 @@ const Header: React.FC = () => {
     >
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         <Link href="/" className="text-2xl font-bold text-white">
-          MyPortfolio
+          My Portfolio
         </Link>
         <div className="hidden md:flex space-x-4 text-white">
           {navLinks.map((link) => (

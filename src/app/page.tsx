@@ -15,7 +15,6 @@ export default function Home() {
         <About />
         <Contact />
       </div>
-      {/* Optional: Footer can be added here or in layout.tsx */}
       <footer className="py-8 text-center text-slate-400 bg-slate-900 border-t border-slate-800">
         <p>&copy; {new Date().getFullYear()} My Portfolio. All rights reserved.</p>
         <p className="text-sm">
