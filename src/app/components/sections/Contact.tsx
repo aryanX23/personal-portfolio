@@ -87,7 +87,7 @@ const Contact: React.FC = () => {
             exit={{ opacity: 0, y: -15 }}
             className="bg-gradient-to-r from-gradient-from/20 via-gradient-via/20 to-gradient-to/20 border border-gradient-via/40 text-foreground dark:text-dark-foreground px-4 py-3 rounded-lg mb-6 text-center"
           >
-            Thank you for your message! I'll get back to you soon.
+            Thank you for your message! I&apos;ll get back to you soon.
           </motion.div>
         )}
 

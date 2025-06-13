@@ -81,14 +81,14 @@ const About: React.FC = () => {
           >
             <h3 className="text-2xl sm:text-3xl font-semibold text-foreground dark:text-dark-foreground mb-5">My Journey in Tech</h3>
             <p className="text-gray-600 dark:text-gray-400 mb-5 leading-relaxed text-base sm:text-lg">
-              Hello! I'm a dedicated software developer with a strong passion for crafting intuitive and performant digital experiences. 
+              Hello! I&apos;m a dedicated software developer with a strong passion for crafting intuitive and performant digital experiences. 
               My fascination with technology began with a simple curiosity about how the web works, which quickly blossomed into a full-fledged pursuit of web development and software engineering.
             </p>
             <p className="text-gray-600 dark:text-gray-400 mb-5 leading-relaxed text-base sm:text-lg">
               I thrive in dynamic environments where I can continuously learn, adapt, and apply new technologies to solve complex problems and build impactful projects. My goal is to create software that not only functions flawlessly but also provides a delightful user experience.
             </p>
              <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-base sm:text-lg">
-              Beyond coding, I'm an avid explorer of emerging design trends, a contributor to open-source communities, and a lifelong learner committed to staying at the cutting edge of web innovation.
+              Beyond coding, I&apos;m an avid explorer of emerging design trends, a contributor to open-source communities, and a lifelong learner committed to staying at the cutting edge of web innovation.
             </p>
           </motion.div>
           <motion.div
