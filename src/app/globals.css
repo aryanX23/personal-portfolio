@@ -1,19 +1,36 @@
+/* app/globals.css */
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* 
+  Base body styles will now be primarily handled by applying Tailwind classes 
+  to the <body> tag in your layout.tsx, e.g., 
+  <body class="bg-background text-foreground dark:bg-dark-background dark:text-dark-foreground font-sans">
+  This ensures Tailwind's dark mode variants work correctly.
+*/
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* You can add other global styles or custom @apply utilities below */
 
+/* If you still need global CSS variables for very specific cases not covered by Tailwind theme,
+   you can define them here. However, prefer using Tailwind's theme directly.
+   Example:
+   :root {
+     --custom-legacy-spacing: 1.23rem;
+   }
+   .dark:root {
+     --custom-legacy-spacing-dark: 1.25rem;
+   }
+*/
+
+/* Ensure your base font is set up. Tailwind's preflight handles much of this,
+   but you can reinforce it or set defaults if needed.
+   The font-family is already set in tailwind.config.ts (theme.fontFamily.sans)
+   and should be applied via a class like `font-sans` on the body.
+*/
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: "Inter", sans-serif;
+  /* Other global body styles that are hard to achieve with utility classes can go here,
+     but aim to keep this minimal. 
+     The font-family is applied via `font-sans` class on the body in layout.tsx.
+     Background and foreground colors are also applied via classes in layout.tsx.
+  */
 }

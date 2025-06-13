@@ -4,12 +4,12 @@ import React, { useState } from "react";
 import { motion, Variants, Easing } from "framer-motion";
 
 const sectionVariants: Variants = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.7,
       ease: "easeOut" as Easing,
     },
   },
@@ -38,10 +38,9 @@ const Contact: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitted(false); // Reset submission status
-    setSubmitError(null);   // Reset error status
+    setIsSubmitted(false); 
+    setSubmitError(null);   
 
-    // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       setSubmitError("Please fill in all fields.");
       return;
@@ -51,31 +50,28 @@ const Contact: React.FC = () => {
       return;
     }
 
-    // Placeholder for form submission logic (e.g., API call)
-    console.log("Form data submitted:", formData);
-    // Simulate API call
+    // Placeholder for actual submission logic
+    // console.log("Form data submitted:", formData); 
     await new Promise(resolve => setTimeout(resolve, 1000)); 
     
-    // Assuming submission is successful
     setIsSubmitted(true);
-    setFormData({ name: "", email: "", message: "" }); // Reset form
+    setFormData({ name: "", email: "", message: "" }); 
 
-    // Hide success message after a few seconds
     setTimeout(() => setIsSubmitted(false), 5000);
   };
 
   return (
     <motion.section
       id="contact"
-      className="py-20 bg-slate-900 text-white px-4 md:px-8"
+      className="py-20 sm:py-28 bg-background text-foreground dark:bg-dark-background dark:text-dark-foreground px-4 md:px-8" // Consistent padding
       variants={sectionVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.15 }}
     >
-      <div className="container mx-auto max-w-2xl">
+      <div className="container mx-auto max-w-xl"> {/* Slightly narrower for contact form */}
         <motion.h2
-          className="text-4xl font-bold text-center mb-12 text-sky-400"
+          className="text-4xl sm:text-5xl font-bold text-center mb-12 sm:mb-16 text-foreground dark:text-dark-foreground" // Consistent heading
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
@@ -86,10 +82,10 @@ const Contact: React.FC = () => {
 
         {isSubmitted && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="bg-green-500/20 border border-green-500 text-green-300 px-4 py-3 rounded-lg mb-6 text-center"
+            exit={{ opacity: 0, y: -15 }}
+            className="bg-gradient-to-r from-gradient-from/20 via-gradient-via/20 to-gradient-to/20 border border-gradient-via/40 text-foreground dark:text-dark-foreground px-4 py-3 rounded-lg mb-6 text-center"
           >
             Thank you for your message! I'll get back to you soon.
           </motion.div>
@@ -97,9 +93,9 @@ const Contact: React.FC = () => {
 
         {submitError && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-red-500/20 border border-red-500 text-red-300 px-4 py-3 rounded-lg mb-6 text-center"
+            className="bg-red-500/10 border border-red-400 text-red-700 dark:bg-red-700/30 dark:border-red-600 dark:text-red-200 px-4 py-3 rounded-lg mb-6 text-center"
           >
             {submitError}
           </motion.div>
@@ -107,53 +103,56 @@ const Contact: React.FC = () => {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-1">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-400 mb-1.5">
               Full Name
             </label>
-            <input
+            <motion.input
               type="text"
               name="name"
               id="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-4 py-2.5 bg-slate-800 border border-slate-700 rounded-lg focus:ring-sky-500 focus:border-sky-500 transition-colors"
+              className="w-full px-4 py-3 bg-card dark:bg-dark-card border border-border dark:border-dark-border rounded-md text-foreground dark:text-dark-foreground focus:ring-2 focus:ring-gradient-from focus:border-transparent transition-all duration-200 placeholder-gray-400 dark:placeholder-gray-500"
               placeholder="Your Name"
+              whileFocus={{ boxShadow: "0 0 0 2px rgba(117, 69, 249, 0.4)" }} // gradient-from with opacity
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-400 mb-1.5">
               Email Address
             </label>
-            <input
+            <motion.input
               type="email"
               name="email"
               id="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-2.5 bg-slate-800 border border-slate-700 rounded-lg focus:ring-sky-500 focus:border-sky-500 transition-colors"
+              className="w-full px-4 py-3 bg-card dark:bg-dark-card border border-border dark:border-dark-border rounded-md text-foreground dark:text-dark-foreground focus:ring-2 focus:ring-gradient-from focus:border-transparent transition-all duration-200 placeholder-gray-400 dark:placeholder-gray-500"
               placeholder="you@example.com"
+              whileFocus={{ boxShadow: "0 0 0 2px rgba(117, 69, 249, 0.4)" }}
             />
           </div>
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-1">
+            <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-400 mb-1.5">
               Message
             </label>
-            <textarea
+            <motion.textarea
               name="message"
               id="message"
-              rows={4}
+              rows={5} // Slightly taller
               value={formData.message}
               onChange={handleChange}
-              className="w-full px-4 py-2.5 bg-slate-800 border border-slate-700 rounded-lg focus:ring-sky-500 focus:border-sky-500 transition-colors"
+              className="w-full px-4 py-3 bg-card dark:bg-dark-card border border-border dark:border-dark-border rounded-md text-foreground dark:text-dark-foreground focus:ring-2 focus:ring-gradient-from focus:border-transparent transition-all duration-200 placeholder-gray-400 dark:placeholder-gray-500"
               placeholder="Your message..."
+              whileFocus={{ boxShadow: "0 0 0 2px rgba(117, 69, 249, 0.4)" }}
             />
           </div>
           <div>
             <motion.button
               type="submit"
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.03, filter: "brightness(1.1)" }}
               whileTap={{ scale: 0.97 }}
-              className="w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+              className="w-full bg-brand-gradient text-white font-semibold py-3.5 px-6 rounded-lg shadow-md transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-offset-dark-background focus:ring-gradient-to"
             >
               Send Message
             </motion.button>

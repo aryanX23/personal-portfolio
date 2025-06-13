@@ -15,14 +15,14 @@ interface ProjectCardProps {
 }
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 30 }, // Slightly increased y for entry
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.2,
-      duration: 0.6,
-      ease: "easeInOut",
+      delay: i * 0.15, // Slightly faster stagger
+      duration: 0.5,
+      ease: "easeOut",
     },
   }),
 };
@@ -37,7 +37,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   index,
 }) => {
   const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.2 }); // Trigger animation a bit earlier
 
   return (
     <motion.div
@@ -47,47 +47,55 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       animate={isInView ? "visible" : "hidden"}
       variants={cardVariants}
       whileHover={{
-        scale: 1.03,
-        rotateX: 5,
-        rotateY: -5,
-        boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.3)", // Subtle glow/shadow
+        scale: 1.02, // More subtle scale
+        boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.1)", // Adjusted shadow for light/dark
       }}
-      className="bg-slate-800 rounded-lg overflow-hidden shadow-xl transform transition-all duration-300 ease-out"
-      style={{ perspective: "1000px" }} // Needed for 3D transform effect
+      className="bg-card dark:bg-dark-card rounded-lg overflow-hidden shadow-lg border border-border dark:border-dark-border transition-all duration-300 ease-out group"
     >
-      <div className="relative w-full h-56">
-        <Image src={imageUrl} alt={title} fill={true} className="object-cover" />
+      <div className="relative w-full h-52 overflow-hidden"> {/* Fixed height for consistency */}
+        <Image 
+          src={imageUrl} 
+          alt={title} 
+          fill={true} 
+          className="object-cover transition-transform duration-300 group-hover:scale-105" // Subtle zoom on image hover
+        />
       </div>
       <div className="p-6">
-        <h3 className="text-2xl font-semibold text-sky-400 mb-2">{title}</h3>
-        <p className="text-slate-300 text-sm mb-4">{description}</p>
+        <h3 className="text-xl font-semibold text-foreground dark:text-dark-foreground mb-2">{title}</h3>
+        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 h-20 overflow-y-auto"> {/* Fixed height for description */}
+          {description}
+        </p>
         <div className="flex flex-wrap gap-2 mb-4">
           {tags.map((tag) => (
-            <span key={tag} className="bg-slate-700 text-sky-300 px-2 py-1 text-xs rounded">
+            <span key={tag} className="bg-gray-100 dark:bg-dark-border text-gray-700 dark:text-gray-300 px-2.5 py-1 text-xs rounded-full"> {/* Rounded-full for pill shape */}
               {tag}
             </span>
           ))}
         </div>
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 mt-auto pt-4 border-t border-border dark:border-dark-border"> {/* Added border-t for separation */}
           {liveUrl && (
-            <a
+            <motion.a
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sky-400 hover:text-sky-300 transition-colors"
+              className="text-gradient-from hover:text-gradient-via transition-colors duration-200 font-medium"
+              whileHover={{ letterSpacing: "0.5px" }} // Subtle letter spacing on hover
+              whileTap={{ scale: 0.95 }}
             >
               View Live
-            </a>
+            </motion.a>
           )}
           {repoUrl && (
-            <a
+            <motion.a
               href={repoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-slate-300 transition-colors"
+              className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors duration-200 font-medium"
+              whileHover={{ letterSpacing: "0.5px" }}
+              whileTap={{ scale: 0.95 }}
             >
               GitHub Repo
-            </a>
+            </motion.a>
           )}
         </div>
       </div>
@@ -98,31 +106,31 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 const placeholderProjects: Omit<ProjectCardProps, "index">[] = [
   {
     title: "E-commerce Platform",
-    description: "A full-stack e-commerce website with modern features and a responsive design.",
-    imageUrl: "/placeholder-project-1.svg", // Using local SVG
+    description: "A full-stack e-commerce website with modern features, a responsive design, and integrated payment solutions for a seamless shopping experience.",
+    imageUrl: "/placeholder-project-1.svg",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
     liveUrl: "#",
     repoUrl: "#",
   },
   {
     title: "Task Management App",
-    description: "A collaborative task management tool to boost productivity.",
-    imageUrl: "/placeholder-project-2.svg", // Using local SVG
-    tags: ["React", "Firebase", "Framer Motion"],
+    description: "A collaborative task management tool designed to boost team productivity with real-time updates and an intuitive user interface.",
+    imageUrl: "/placeholder-project-2.svg",
+    tags: ["React", "Firebase", "Framer Motion", "Node.js"],
     liveUrl: "#",
   },
   {
-    title: "Portfolio Website v1",
-    description: "My previous personal portfolio built with vanilla HTML, CSS, and JS.",
-    imageUrl: "/placeholder-project-3.svg", // Using local SVG
-    tags: ["HTML", "CSS", "JavaScript"],
+    title: "Data Visualization Dashboard",
+    description: "An interactive dashboard for visualizing complex datasets, providing actionable insights through dynamic charts and graphs.",
+    imageUrl: "/placeholder-project-3.svg",
+    tags: ["D3.js", "React", "Python", "Flask"],
     repoUrl: "#",
   },
-    {
+  {
     title: "AI Chatbot Interface",
-    description: "A sleek and interactive UI for an AI-powered chatbot.",
-    imageUrl: "/placeholder-project-4.svg", // Using local SVG
-    tags: ["Vue.js", "Nuxt.js", "Tailwind CSS"],
+    description: "A sleek and interactive UI for an AI-powered chatbot, focusing on user experience and natural language processing capabilities.",
+    imageUrl: "/placeholder-project-4.svg",
+    tags: ["Vue.js", "Nuxt.js", "Tailwind CSS", "Dialogflow"],
     liveUrl: "#",
     repoUrl: "#",
   },
@@ -130,18 +138,18 @@ const placeholderProjects: Omit<ProjectCardProps, "index">[] = [
 
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="py-20 bg-slate-900 text-white px-4 md:px-8"> {/* Changed bg-slate-850 to bg-slate-900 */}
+    <section id="projects" className="py-20 sm:py-28 bg-background text-foreground dark:bg-dark-background dark:text-dark-foreground px-4 md:px-8"> {/* Increased padding */}
       <div className="container mx-auto">
         <motion.h2 
-          className="text-4xl font-bold text-center mb-12 text-sky-400"
+          className="text-4xl sm:text-5xl font-bold text-center mb-16 sm:mb-20 text-foreground dark:text-dark-foreground" // Increased margin
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5 }}
         >
-          My Projects
+          Featured Projects
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10"> {/* Adjusted gap for larger screens */}
           {placeholderProjects.map((project, index) => (
             <ProjectCard key={project.title} {...project} index={index} />
           ))}

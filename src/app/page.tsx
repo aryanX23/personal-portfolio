@@ -3,11 +3,15 @@ import Hero from "@/app/components/sections/Hero";
 import About from "@/app/components/sections/About";
 import Projects from "@/app/components/sections/Projects";
 import Contact from "@/app/components/sections/Contact";
+import Footer from "@/app/components/Footer"; // Import the new Footer component
 import React from "react";
+// motion and Transition imports are no longer needed here if pageVariants and pageTransition are removed
 
 export default function Home() {
   return (
-    <main className="flex flex-col min-h-screen bg-slate-900">
+    <main
+      className="flex flex-col min-h-screen" // Removed bg-slate-900
+    >
       <Header />
       <div className="flex-grow">
         <Hero />
@@ -15,12 +19,7 @@ export default function Home() {
         <About />
         <Contact />
       </div>
-      <footer className="py-8 text-center text-slate-400 bg-slate-900 border-t border-slate-800">
-        <p>&copy; {new Date().getFullYear()} My Portfolio. All rights reserved.</p>
-        <p className="text-sm">
-          Built with Next.js, Tailwind CSS, and Framer Motion.
-        </p>
-      </footer>
+      <Footer /> {/* Use the new Footer component */}
     </main>
   );
 }
