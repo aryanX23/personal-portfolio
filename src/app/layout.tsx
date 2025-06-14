@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
-// 1. Import Bodoni_Moda instead of Playfair_Display
-import { Manrope, Bodoni_Moda } from "next/font/google";
+// 1. Import the new Dancing_Script font
+import { Manrope, Bodoni_Moda, Dancing_Script } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/ThemeProvider";
 import PageTransitionWrapper from "./components/PageTransitionWrapper";
@@ -12,15 +12,22 @@ const manrope = Manrope({
 	weight: ["300", "400", "500", "600", "700"],
 });
 
-// 2. Add the setup for the new Bodoni Moda font
+// Your existing Bodoni Moda font setup
 const bordoni = Bodoni_Moda({
 	subsets: ["latin"],
-	variable: "--font-bordoni", // A new variable for the font
+	variable: "--font-bordoni",
+	weight: ["400", "700"],
+});
+
+// 2. Add the setup for the new script font
+const dancingScript = Dancing_Script({
+	subsets: ["latin"],
+	variable: "--font-script",
 	weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
-	title: "Aryan Rai's Portfolio", // Updated title
+	title: "Aryan Rai's Portfolio",
 	description: "A showcase of my projects and skills.",
 };
 
@@ -40,7 +47,7 @@ export default function RootLayout({
 		// 3. Add the new font variable to the <html> tag
 		<html
 			lang="en"
-			className={`${manrope.variable} ${bordoni.variable}`}
+			className={`${manrope.variable} ${bordoni.variable} ${dancingScript.variable}`}
 			suppressHydrationWarning
 		>
 			<body className="antialiased font-sans bg-background text-foreground">
