@@ -1,46 +1,58 @@
-import type { Metadata, Viewport } from "next"; // Import Viewport
-import { Manrope } from "next/font/google"; // Using Manrope font
+import type { Metadata, Viewport } from "next";
+// 1. Import Bodoni_Moda instead of Playfair_Display
+import { Manrope, Bodoni_Moda } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "./components/ThemeProvider"; // Import ThemeProvider
-import PageTransitionWrapper from "./components/PageTransitionWrapper"; // Import the new wrapper
+import { ThemeProvider } from "./components/ThemeProvider";
+import PageTransitionWrapper from "./components/PageTransitionWrapper";
 
-const manrope = Manrope({ // Changed from Inter to Manrope
-  subsets: ["latin"],
-  variable: "--font-manrope", // Define a CSS variable for the font
-  weight: ['300', '400', '500', '600', '700'] // Specify available weights
+// Your existing Manrope font setup
+const manrope = Manrope({
+	subsets: ["latin"],
+	variable: "--font-manrope",
+	weight: ["300", "400", "500", "600", "700"],
+});
+
+// 2. Add the setup for the new Bodoni Moda font
+const bordoni = Bodoni_Moda({
+	subsets: ["latin"],
+	variable: "--font-bordoni", // A new variable for the font
+	weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "My Personal Portfolio",
-  description: "A showcase of my projects and skills.",
+	title: "Aryan Rai's Portfolio", // Updated title
+	description: "A showcase of my projects and skills.",
 };
 
-// Define viewport settings including themeColor
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#F9FAFB" }, // Updated to match new light background
-    { media: "(prefers-color-scheme: dark)", color: "#000000" },  // Updated to match new dark.background
-  ],
+	themeColor: [
+		{ media: "(prefers-color-scheme: light)", color: "#FAFAFA" },
+		{ media: "(prefers-color-scheme: dark)", color: "#0A0A0A" },
+	],
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en" className={manrope.variable} suppressHydrationWarning>{/* Use manrope variable */}<body className="antialiased font-sans bg-background text-foreground dark:bg-dark-background dark:text-dark-foreground">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <PageTransitionWrapper>
-            {children}
-          </PageTransitionWrapper>
-        </ThemeProvider>
-      </body>
-    </html>
-  );
+	return (
+		// 3. Add the new font variable to the <html> tag
+		<html
+			lang="en"
+			className={`${manrope.variable} ${bordoni.variable}`}
+			suppressHydrationWarning
+		>
+			<body className="antialiased font-sans bg-background text-foreground">
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange={false}
+				>
+					<PageTransitionWrapper>{children}</PageTransitionWrapper>
+				</ThemeProvider>
+			</body>
+		</html>
+	);
 }
