@@ -14,9 +14,7 @@ const config: Config = {
         foreground: '#1F2937', // Dark gray for text
         card: '#FFFFFF',       // White for cards
         border: '#E5E7EB',     // Light gray for borders
-        // Removed primary, secondary, accent for light mode to prioritize gradient
 
-        // Dark Mode Colors (Resend-inspired)
         dark: {
           background: '#000000', // True black background
           foreground: '#E5E5E5', // Light gray for text
@@ -24,7 +22,6 @@ const config: Config = {
           border: '#2D2D2D',     // Subtle border color
         },
         
-        // Resend-inspired gradient colors
         'gradient-from': '#7545f9',
         'gradient-via': '#c43998',
         'gradient-to': '#fe5325',
@@ -45,18 +42,15 @@ const config: Config = {
         '6xl': ['3.75rem', { lineHeight: '1' }],       // 60px
       },
       spacing: {
-        // Tailwind's default spacing scale is quite comprehensive.
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "brand-gradient": "linear-gradient(90deg, #7545f9, #c43998, #fe5325)", // Added for convenience
+        "brand-gradient": "linear-gradient(90deg, #7545f9, #c43998, #fe5325)",
       },
     },
   },
-  plugins: [
-    // You might add plugins like @tailwindcss/typography or @tailwindcss/forms later
-  ],
+  plugins: [],
 };
 export default config;

@@ -1,25 +1,21 @@
 import type { Metadata, Viewport } from "next";
-// 1. Import the new Dancing_Script font
 import { Manrope, Bodoni_Moda, Dancing_Script } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/ThemeProvider";
 import PageTransitionWrapper from "./components/PageTransitionWrapper";
 
-// Your existing Manrope font setup
 const manrope = Manrope({
 	subsets: ["latin"],
 	variable: "--font-manrope",
 	weight: ["300", "400", "500", "600", "700"],
 });
 
-// Your existing Bodoni Moda font setup
 const bordoni = Bodoni_Moda({
 	subsets: ["latin"],
 	variable: "--font-bordoni",
 	weight: ["400", "700"],
 });
 
-// 2. Add the setup for the new script font
 const dancingScript = Dancing_Script({
 	subsets: ["latin"],
 	variable: "--font-script",
@@ -44,7 +40,6 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		// 3. Add the new font variable to the <html> tag
 		<html
 			lang="en"
 			className={`${manrope.variable} ${bordoni.variable} ${dancingScript.variable}`}

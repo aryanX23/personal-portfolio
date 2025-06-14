@@ -87,7 +87,6 @@ const ThemeToggle: React.FC = () => {
 	);
 };
 
-// --- Main Header Component ---
 
 const Header: React.FC = () => {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -99,7 +98,7 @@ const Header: React.FC = () => {
 		const previous = scrollY.getPrevious();
 		if (previous !== undefined && latest > previous && latest > 150) {
 			setHidden(true);
-			setIsMobileMenuOpen(false); // Close mobile menu on scroll
+			setIsMobileMenuOpen(false);
 		} else {
 			setHidden(false);
 		}

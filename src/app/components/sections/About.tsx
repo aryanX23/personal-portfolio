@@ -17,25 +17,25 @@ const sectionVariants: Variants = {
 
 interface SkillProps {
   name: string;
-  level: number; // e.g., 0-100 for percentage
+  level: number;
 }
 
 const SkillBar: React.FC<SkillProps> = ({ name, level }) => {
   return (
     <motion.div
-      className="mb-5 p-1" // Simplified padding, removed hover
+      className="mb-5 p-1"
     >
       <div className="flex justify-between mb-1.5">
         <span className="text-base font-medium text-foreground dark:text-dark-foreground">{name}</span>
         <span className="text-sm font-medium text-gray-500 dark:text-gray-400">{level}%</span>
       </div>
-      <div className="w-full bg-border dark:bg-dark-border rounded-full h-2"> {/* Adjusted height */}
+      <div className="w-full bg-border dark:bg-dark-border rounded-full h-2">
         <motion.div
-          className="bg-brand-gradient h-2 rounded-full" // Using brand gradient
+          className="bg-brand-gradient h-2 rounded-full"
           initial={{ width: 0 }}
           whileInView={{ width: `${level}%` }}
           viewport={{ once: true, amount: 0.8 }}
-          transition={{ duration: 1.2, ease: "circOut" }} // Smoother ease
+          transition={{ duration: 1.2, ease: "circOut" }}
         />
       </div>
     </motion.div>
@@ -55,15 +55,15 @@ const About: React.FC = () => {
   return (
     <motion.section
       id="about"
-      className="py-20 sm:py-28 bg-background text-foreground dark:bg-dark-background dark:text-dark-foreground px-4 md:px-8" // Consistent padding
+      className="py-20 sm:py-28 bg-background text-foreground dark:bg-dark-background dark:text-dark-foreground px-4 md:px-8"
       variants={sectionVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.15 }} // Trigger a bit earlier
+      viewport={{ once: true, amount: 0.15 }}
     >
-      <div className="container mx-auto max-w-5xl"> {/* Max width for content */}
+      <div className="container mx-auto max-w-5xl">
         <motion.h2
-          className="text-4xl sm:text-5xl font-bold text-center mb-16 sm:mb-20 text-foreground dark:text-dark-foreground" // Consistent heading
+          className="text-4xl sm:text-5xl font-bold text-center mb-16 sm:mb-20 text-foreground dark:text-dark-foreground"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
@@ -71,9 +71,9 @@ const About: React.FC = () => {
         >
           About Me
         </motion.h2>
-        <div className="grid md:grid-cols-5 gap-12 items-start"> {/* Changed to 5 columns for layout, items-start */}
+        <div className="grid md:grid-cols-5 gap-12 items-start">
           <motion.div
-            className="md:col-span-3" // Text takes 3 columns
+            className="md:col-span-3"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -92,7 +92,7 @@ const About: React.FC = () => {
             </p>
           </motion.div>
           <motion.div
-            className="md:col-span-2" // Skills take 2 columns
+            className="md:col-span-2"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}

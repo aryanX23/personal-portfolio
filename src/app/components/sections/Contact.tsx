@@ -50,8 +50,6 @@ const Contact: React.FC = () => {
       return;
     }
 
-    // Placeholder for actual submission logic
-    // console.log("Form data submitted:", formData); 
     await new Promise(resolve => setTimeout(resolve, 1000)); 
     
     setIsSubmitted(true);
@@ -63,15 +61,15 @@ const Contact: React.FC = () => {
   return (
     <motion.section
       id="contact"
-      className="py-20 sm:py-28 bg-background text-foreground dark:bg-dark-background dark:text-dark-foreground px-4 md:px-8" // Consistent padding
+      className="py-20 sm:py-28 bg-background text-foreground dark:bg-dark-background dark:text-dark-foreground px-4 md:px-8"
       variants={sectionVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.15 }}
     >
-      <div className="container mx-auto max-w-xl"> {/* Slightly narrower for contact form */}
+      <div className="container mx-auto max-w-xl">
         <motion.h2
-          className="text-4xl sm:text-5xl font-bold text-center mb-12 sm:mb-16 text-foreground dark:text-dark-foreground" // Consistent heading
+          className="text-4xl sm:text-5xl font-bold text-center mb-12 sm:mb-16 text-foreground dark:text-dark-foreground"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
@@ -114,7 +112,7 @@ const Contact: React.FC = () => {
               onChange={handleChange}
               className="w-full px-4 py-3 bg-card dark:bg-dark-card border border-border dark:border-dark-border rounded-md text-foreground dark:text-dark-foreground focus:ring-2 focus:ring-gradient-from focus:border-transparent transition-all duration-200 placeholder-gray-400 dark:placeholder-gray-500"
               placeholder="Your Name"
-              whileFocus={{ boxShadow: "0 0 0 2px rgba(117, 69, 249, 0.4)" }} // gradient-from with opacity
+              whileFocus={{ boxShadow: "0 0 0 2px rgba(117, 69, 249, 0.4)" }}
             />
           </div>
           <div>
@@ -139,7 +137,7 @@ const Contact: React.FC = () => {
             <motion.textarea
               name="message"
               id="message"
-              rows={5} // Slightly taller
+              rows={5}
               value={formData.message}
               onChange={handleChange}
               className="w-full px-4 py-3 bg-card dark:bg-dark-card border border-border dark:border-dark-border rounded-md text-foreground dark:text-dark-foreground focus:ring-2 focus:ring-gradient-from focus:border-transparent transition-all duration-200 placeholder-gray-400 dark:placeholder-gray-500"
