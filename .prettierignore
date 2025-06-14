@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Lockfiles
+bun.lockb
+bun.lock
+package-lock.json
+yarn.lock
+
+# Build outputs & cache
+.next/
+out/
+build/
+.swc/
+
+# Local settings
+.vscode/

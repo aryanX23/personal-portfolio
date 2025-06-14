@@ -4,25 +4,25 @@ This is a personal portfolio website built with [Next.js](https://nextjs.org/), 
 
 ## Features
 
-*   **Responsive Design**: Adapts to various screen sizes for a seamless experience on desktop, tablet, and mobile devices.
-*   **Modern Tech Stack**: Leverages the power of Next.js for server-side rendering (SSR) or static site generation (SSG), TypeScript for type safety, and Tailwind CSS for utility-first styling.
-*   **Key Sections**:
-    *   **Hero**: A captivating introduction (see `src/app/components/sections/Hero.tsx`).
-    *   **About**: Information about me, my skills, and experience (see `src/app/components/sections/About.tsx`).
-    *   **Projects**: A showcase of my work with descriptions and links (see `src/app/components/sections/Projects.tsx`).
-    *   **Contact**: A way for visitors to reach out (see `src/app/components/sections/Contact.tsx`).
-*   **Optimized Performance**: Built with performance in mind using Next.js features like image optimization and font optimization.
-*   **Theme Provider**: Includes a theme provider, potentially for light/dark mode switching (see `src/app/components/ThemeProvider.tsx`).
-*   **Page Transitions**: Smooth page transitions for an enhanced user experience (see `src/app/components/PageTransitionWrapper.tsx`).
+- **Responsive Design**: Adapts to various screen sizes for a seamless experience on desktop, tablet, and mobile devices.
+- **Modern Tech Stack**: Leverages the power of Next.js for server-side rendering (SSR) or static site generation (SSG), TypeScript for type safety, and Tailwind CSS for utility-first styling.
+- **Key Sections**:
+  - **Hero**: A captivating introduction (see `src/app/components/sections/Hero.tsx`).
+  - **About**: Information about me, my skills, and experience (see `src/app/components/sections/About.tsx`).
+  - **Projects**: A showcase of my work with descriptions and links (see `src/app/components/sections/Projects.tsx`).
+  - **Contact**: A way for visitors to reach out (see `src/app/components/sections/Contact.tsx`).
+- **Optimized Performance**: Built with performance in mind using Next.js features like image optimization and font optimization.
+- **Theme Provider**: Includes a theme provider, potentially for light/dark mode switching (see `src/app/components/ThemeProvider.tsx`).
+- **Page Transitions**: Smooth page transitions for an enhanced user experience (see `src/app/components/PageTransitionWrapper.tsx`).
 
 ## Tech Stack
 
-*   **Framework**: [Next.js](https://nextjs.org/) (App Router)
-*   **Language**: [TypeScript](https://www.typescriptlang.org/)
-*   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-*   **Package Manager**: [Bun](https://bun.sh/) (inferred from `bun.lock`)
-*   **Linting**: [ESLint](https://eslint.org/) (inferred from `eslint.config.mjs`)
-*   **Font**: [Geist](https://vercel.com/font) (likely used, as per default Next.js setup)
+- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Package Manager**: [Bun](https://bun.sh/) (inferred from `bun.lock`)
+- **Linting**: [ESLint](https://eslint.org/) (inferred from `eslint.config.mjs`)
+- **Font**: [Geist](https://vercel.com/font) (likely used, as per default Next.js setup)
 
 ## Project Structure Overview
 
@@ -59,6 +59,7 @@ personal-portfolio/
 First, ensure you have [Node.js](https://nodejs.org/) (LTS version recommended) and [Bun](https://bun.sh/) installed.
 
 1.  **Clone the repository** (if you haven't already):
+
     ```bash
     git clone https://github.com/aryanX23/personal-portfolio.git
     cd personal-portfolio
@@ -66,10 +67,13 @@ First, ensure you have [Node.js](https://nodejs.org/) (LTS version recommended) 
 
 2.  **Install dependencies**:
     This project uses Bun (as indicated by `bun.lock`).
+
     ```bash
     bun install
     ```
+
     If you prefer other package managers and have the corresponding lock files, you can use:
+
     ```bash
     # npm install
     # yarn install
@@ -95,8 +99,8 @@ You can start editing the main page by modifying `src/app/page.tsx`. The page au
 
 To learn more about Next.js, take a look at the following resources:
 
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
@@ -108,8 +112,8 @@ Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Contact
 
-*   **Your Name/Handle**: `[Aryan Rai]`
-*   **Email**: `[official@aryan-rai.com]`
-*   **Portfolio URL**: `[https://portfolio.aryan-rai.com/]`
-*   **GitHub**: `[https://github.com/aryanX23]`
-*   **LinkedIn**: `[https://www.linkedin.com/in/aryan-rai-92b184228/]`
+- **Your Name/Handle**: `[Aryan Rai]`
+- **Email**: `[official@aryan-rai.com]`
+- **Portfolio URL**: `[https://portfolio.aryan-rai.com/]`
+- **GitHub**: `[https://github.com/aryanX23]`
+- **LinkedIn**: `[https://www.linkedin.com/in/aryan-rai-92b184228/]`

@@ -38,8 +38,8 @@ const Contact: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitted(false); 
-    setSubmitError(null);   
+    setIsSubmitted(false);
+    setSubmitError(null);
 
     if (!formData.name || !formData.email || !formData.message) {
       setSubmitError("Please fill in all fields.");
@@ -50,10 +50,10 @@ const Contact: React.FC = () => {
       return;
     }
 
-    await new Promise(resolve => setTimeout(resolve, 1000)); 
-    
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     setIsSubmitted(true);
-    setFormData({ name: "", email: "", message: "" }); 
+    setFormData({ name: "", email: "", message: "" });
 
     setTimeout(() => setIsSubmitted(false), 5000);
   };
@@ -61,7 +61,7 @@ const Contact: React.FC = () => {
   return (
     <motion.section
       id="contact"
-      className="py-20 sm:py-28 bg-background text-foreground dark:bg-dark-background dark:text-dark-foreground px-4 md:px-8"
+      className="bg-background text-foreground dark:bg-dark-background dark:text-dark-foreground px-4 py-20 sm:py-28 md:px-8"
       variants={sectionVariants}
       initial="hidden"
       whileInView="visible"
@@ -69,7 +69,7 @@ const Contact: React.FC = () => {
     >
       <div className="container mx-auto max-w-xl">
         <motion.h2
-          className="text-4xl sm:text-5xl font-bold text-center mb-12 sm:mb-16 text-foreground dark:text-dark-foreground"
+          className="text-foreground dark:text-dark-foreground mb-12 text-center text-4xl font-bold sm:mb-16 sm:text-5xl"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
@@ -83,7 +83,7 @@ const Contact: React.FC = () => {
             initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
-            className="bg-gradient-to-r from-gradient-from/20 via-gradient-via/20 to-gradient-to/20 border border-gradient-via/40 text-foreground dark:text-dark-foreground px-4 py-3 rounded-lg mb-6 text-center"
+            className="from-gradient-from/20 via-gradient-via/20 to-gradient-to/20 border-gradient-via/40 text-foreground dark:text-dark-foreground mb-6 rounded-lg border bg-gradient-to-r px-4 py-3 text-center"
           >
             Thank you for your message! I&apos;ll get back to you soon.
           </motion.div>
@@ -93,7 +93,7 @@ const Contact: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-red-500/10 border border-red-400 text-red-700 dark:bg-red-700/30 dark:border-red-600 dark:text-red-200 px-4 py-3 rounded-lg mb-6 text-center"
+            className="mb-6 rounded-lg border border-red-400 bg-red-500/10 px-4 py-3 text-center text-red-700 dark:border-red-600 dark:bg-red-700/30 dark:text-red-200"
           >
             {submitError}
           </motion.div>
@@ -101,7 +101,10 @@ const Contact: React.FC = () => {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-400 mb-1.5">
+            <label
+              htmlFor="name"
+              className="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400"
+            >
               Full Name
             </label>
             <motion.input
@@ -110,13 +113,16 @@ const Contact: React.FC = () => {
               id="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-card dark:bg-dark-card border border-border dark:border-dark-border rounded-md text-foreground dark:text-dark-foreground focus:ring-2 focus:ring-gradient-from focus:border-transparent transition-all duration-200 placeholder-gray-400 dark:placeholder-gray-500"
+              className="bg-card dark:bg-dark-card border-border dark:border-dark-border text-foreground dark:text-dark-foreground focus:ring-gradient-from w-full rounded-md border px-4 py-3 placeholder-gray-400 transition-all duration-200 focus:border-transparent focus:ring-2 dark:placeholder-gray-500"
               placeholder="Your Name"
               whileFocus={{ boxShadow: "0 0 0 2px rgba(117, 69, 249, 0.4)" }}
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-400 mb-1.5">
+            <label
+              htmlFor="email"
+              className="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400"
+            >
               Email Address
             </label>
             <motion.input
@@ -125,13 +131,16 @@ const Contact: React.FC = () => {
               id="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-card dark:bg-dark-card border border-border dark:border-dark-border rounded-md text-foreground dark:text-dark-foreground focus:ring-2 focus:ring-gradient-from focus:border-transparent transition-all duration-200 placeholder-gray-400 dark:placeholder-gray-500"
+              className="bg-card dark:bg-dark-card border-border dark:border-dark-border text-foreground dark:text-dark-foreground focus:ring-gradient-from w-full rounded-md border px-4 py-3 placeholder-gray-400 transition-all duration-200 focus:border-transparent focus:ring-2 dark:placeholder-gray-500"
               placeholder="you@example.com"
               whileFocus={{ boxShadow: "0 0 0 2px rgba(117, 69, 249, 0.4)" }}
             />
           </div>
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-400 mb-1.5">
+            <label
+              htmlFor="message"
+              className="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400"
+            >
               Message
             </label>
             <motion.textarea
@@ -140,7 +149,7 @@ const Contact: React.FC = () => {
               rows={5}
               value={formData.message}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-card dark:bg-dark-card border border-border dark:border-dark-border rounded-md text-foreground dark:text-dark-foreground focus:ring-2 focus:ring-gradient-from focus:border-transparent transition-all duration-200 placeholder-gray-400 dark:placeholder-gray-500"
+              className="bg-card dark:bg-dark-card border-border dark:border-dark-border text-foreground dark:text-dark-foreground focus:ring-gradient-from w-full rounded-md border px-4 py-3 placeholder-gray-400 transition-all duration-200 focus:border-transparent focus:ring-2 dark:placeholder-gray-500"
               placeholder="Your message..."
               whileFocus={{ boxShadow: "0 0 0 2px rgba(117, 69, 249, 0.4)" }}
             />
@@ -150,7 +159,7 @@ const Contact: React.FC = () => {
               type="submit"
               whileHover={{ scale: 1.03, filter: "brightness(1.1)" }}
               whileTap={{ scale: 0.97 }}
-              className="w-full bg-brand-gradient text-white font-semibold py-3.5 px-6 rounded-lg shadow-md transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background dark:focus:ring-offset-dark-background focus:ring-gradient-to"
+              className="bg-brand-gradient focus:ring-offset-background dark:focus:ring-offset-dark-background focus:ring-gradient-to w-full rounded-lg px-6 py-3.5 font-semibold text-white shadow-md transition-all duration-200 ease-in-out focus:ring-2 focus:ring-offset-2 focus:outline-none"
             >
               Send Message
             </motion.button>
