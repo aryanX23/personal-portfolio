@@ -110,38 +110,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
 const placeholderProjects: Omit<ProjectCardProps, "index">[] = [
   {
-    title: "E-commerce Platform",
+    title: "NexusGear | An E-Commerce Website for Gaming Peripherals",
     description:
-      "A full-stack e-commerce website with modern features, a responsive design, and integrated payment solutions for a seamless shopping experience.",
-    imageUrl: "/placeholder-project-1.svg",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
-    liveUrl: "#",
-    repoUrl: "#",
-  },
-  {
-    title: "Task Management App",
-    description:
-      "A collaborative task management tool designed to boost team productivity with real-time updates and an intuitive user interface.",
-    imageUrl: "/placeholder-project-2.svg",
-    tags: ["React", "Firebase", "Framer Motion", "Node.js"],
-    liveUrl: "#",
-  },
-  {
-    title: "Data Visualization Dashboard",
-    description:
-      "An interactive dashboard for visualizing complex datasets, providing actionable insights through dynamic charts and graphs.",
-    imageUrl: "/placeholder-project-3.svg",
-    tags: ["D3.js", "React", "Python", "Flask"],
-    repoUrl: "#",
-  },
-  {
-    title: "AI Chatbot Interface",
-    description:
-      "A sleek and interactive UI for an AI-powered chatbot, focusing on user experience and natural language processing capabilities.",
-    imageUrl: "/placeholder-project-4.svg",
-    tags: ["Vue.js", "Nuxt.js", "Tailwind CSS", "Dialogflow"],
-    liveUrl: "#",
-    repoUrl: "#",
+      "Built and deployed a secure, full-stack MERN storefront with Stripe integration, containerized via Docker and orchestrated on a high-availability Kubernetes cluster.",
+    imageUrl: "/project1.png",
+    tags: [
+      "ReactJS",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "Stripe API",
+      "Turborepo",
+      "Docker",
+      "Kubernetes",
+    ],
+    liveUrl: "https://nexusgear.aryan-rai.com/",
+    repoUrl: "https://github.com/aryanX23/Nexus-Gear",
   },
 ];
 
