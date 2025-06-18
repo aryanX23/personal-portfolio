@@ -38,7 +38,7 @@ const Resume: React.FC = () => {
           My Resume
         </motion.h2>
         <motion.div
-          className="rounded-lg bg-card p-6 shadow-xl dark:bg-dark-card sm:p-8"
+          className="bg-card dark:bg-dark-card rounded-lg p-6 shadow-xl sm:p-8"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -60,7 +60,7 @@ const Resume: React.FC = () => {
             <a
               href={resumePath}
               download="resume.pdf"
-              className="inline-block rounded-lg bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-md transition-transform duration-150 ease-in-out hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 dark:bg-dark-primary dark:text-dark-primary-foreground dark:hover:bg-dark-primary/90"
+              className="bg-primary text-primary-foreground focus:ring-ring dark:bg-dark-primary dark:text-dark-primary-foreground dark:hover:bg-dark-primary/90 inline-block rounded-lg px-6 py-3 text-base font-medium shadow-md transition-transform duration-150 ease-in-out hover:scale-105 hover:shadow-lg focus:ring-2 focus:ring-offset-2 focus:outline-none"
             >
               Download Resume (PDF)
             </a>
