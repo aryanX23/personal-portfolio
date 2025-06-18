@@ -47,31 +47,30 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       animate={isInView ? "visible" : "hidden"}
       variants={cardVariants}
       whileHover={{
-        scale: 1.02,
-        boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.1)",
+        scale: 1.03,
       }}
-      className="bg-card dark:bg-dark-card border-border dark:border-dark-border group overflow-hidden rounded-lg border shadow-lg transition-all duration-300 ease-out"
+      className="bg-card dark:bg-dark-card border-border group overflow-hidden rounded-lg border shadow-lg transition-all duration-300 ease-out hover:shadow-xl dark:border-neutral-700"
     >
       <div className="relative h-52 w-full overflow-hidden">
         <Image
           src={imageUrl}
           alt={title}
           fill={true}
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-cover transition-transform duration-300"
         />
       </div>
       <div className="p-6">
         <h3 className="text-foreground dark:text-dark-foreground mb-2 text-xl font-semibold">
           {title}
         </h3>
-        <p className="mb-4 h-20 overflow-y-auto text-sm text-gray-600 dark:text-gray-400">
+        <p className="text-foreground/80 dark:text-dark-foreground/80 mb-4 h-20 overflow-y-auto text-sm">
           {description}
         </p>
         <div className="mb-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
             <span
               key={tag}
-              className="dark:bg-dark-border rounded-full bg-gray-100 px-2.5 py-1 text-xs text-gray-700 dark:text-gray-300"
+              className="rounded-md bg-slate-200 px-3 py-1 text-xs font-medium text-slate-700 shadow-sm transition-colors duration-200 hover:bg-slate-300 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-600"
             >
               {tag}
             </span>
@@ -83,7 +82,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gradient-from hover:text-gradient-via font-medium transition-colors duration-200"
+              className="rounded-md border border-slate-300 bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-600 shadow-sm transition-colors duration-200 hover:bg-slate-200 hover:text-slate-700 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-neutral-200"
               whileHover={{ letterSpacing: "0.5px" }}
               whileTap={{ scale: 0.95 }}
             >
@@ -95,7 +94,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               href={repoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-gray-500 transition-colors duration-200 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+              className="rounded-md border border-slate-300 bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-600 shadow-sm transition-colors duration-200 hover:bg-slate-200 hover:text-slate-700 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-neutral-200"
               whileHover={{ letterSpacing: "0.5px" }}
               whileTap={{ scale: 0.95 }}
             >
