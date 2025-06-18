@@ -50,11 +50,20 @@ const Contact: React.FC = () => {
       return;
     }
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const recipientEmail = "official@aryan-rai.com";
+    const subject = `Contact Form Submission from ${formData.name}`;
+    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+
+    const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoLink;
 
     setIsSubmitted(true);
     setFormData({ name: "", email: "", message: "" });
 
+    // Optionally, you might want to delay the form reset slightly
+    // to ensure the mailto link has time to open, though usually it's quick.
+    // For now, keeping the existing timeout logic for the success message.
     setTimeout(() => setIsSubmitted(false), 5000);
   };
 
