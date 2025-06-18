@@ -46,7 +46,7 @@ const Resume: React.FC = () => {
         >
           <div className="aspect-[8.5/11] w-full overflow-hidden rounded-md">
             <iframe
-              src={`${resumePath}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+              src={`${resumePath}#toolbar=0&navpanes=0&scrollbar=0&view=Fit`}
               title="My Resume"
               className="h-full w-full"
               aria-label="Embedded Resume PDF"
