@@ -22,13 +22,13 @@ const Footer: React.FC = () => {
 
   return (
     <motion.footer
-      className="border-t border-border bg-background px-4 py-8 text-foreground backdrop-blur-lg md:px-8 dark:border-dark-border dark:bg-dark-background dark:text-dark-foreground"
+      className="border-border bg-background text-foreground dark:border-dark-border dark:bg-dark-background dark:text-dark-foreground border-t px-4 py-8 backdrop-blur-lg md:px-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.5 }}
     >
       <div className="container mx-auto flex flex-col items-center justify-between text-center md:flex-row md:text-left">
-        <p className="mb-4 text-sm text-foreground/80 md:mb-0 dark:text-dark-foreground/80">
+        <p className="text-foreground/80 dark:text-dark-foreground/80 mb-4 text-sm md:mb-0">
           &copy; {currentYear} ARYAN RAI. All rights reserved.
         </p>
         <div className="flex space-x-5">
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={link.name}
-              className="text-foreground/70 transition-colors duration-200 hover:text-gradient-via dark:text-dark-foreground/70 dark:hover:text-gradient-via"
+              className="text-foreground/70 hover:text-gradient-via dark:text-dark-foreground/70 dark:hover:text-gradient-via transition-colors duration-200"
               whileHover={{ y: -2, scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
